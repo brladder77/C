@@ -1,0 +1,21 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main() {
+	FILE* IN, * OUT;
+	int ch;
+	IN = fopen("c:\C\in.txt", "r");
+	OUT = fopen("c:\C\out.txt", "w");
+	while ((ch = getc(IN)) != EOF) //끝이 올때까지 글자를 차례로 가져옴
+		putc(ch, OUT);
+
+	fclose(IN);
+	fclose(OUT);
+  
+  return 0;
+}
+
+
+//강의에 나오는 것처럼 파일명에 주소 넣으니 안됨 이유는 모르겠다
+//fopen 같은 함수 사용시 no warnings 써줘야함
+//비쥬얼 스튜디오에서 보안에 약한 함수라고 판단하기 때문
