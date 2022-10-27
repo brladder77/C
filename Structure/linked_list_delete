@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct NODE {
+	int data;
+	struct NODE* link;
+};
+
+void main() {
+	struct NODE* head = (NODE*)calloc(40, sizeof(struct NODE));
+
+	struct NODE* node1 = (NODE*)calloc(40, sizeof(struct NODE));
+	head->link = node1;
+	node1->data = 10;
+
+	struct NODE* node2 = (NODE*)calloc(40, sizeof(struct NODE));
+	node1->link = node2;
+	node2->data = 20;
+
+	struct NODE* node3 = (NODE*)calloc(40, sizeof(struct NODE));
+	node2->link = node3;
+	node3->data = 30;
+
+	struct NODE* node4 = (NODE*)calloc(40, sizeof(struct NODE));
+	node3->link = node4;
+	node4->data = 40;
+
+	node4->link = NULL;
+
+	struct NODE* curr = head->link;
+
+	while (curr != NULL) {
+		printf("%d\n", curr->data);
+		curr = curr->link;
+	}
+
+	puts("- 삭제 후 -");
+	node2->link = node4;
+
+	curr = head->link;
+
+	while (curr != NULL) {
+		printf("%d\n", curr->data);
+		curr = curr->link;
+	}
+
+	free(node1); free(node2); free(node4);
+	free(head);
+  
+  return 0;
+}
