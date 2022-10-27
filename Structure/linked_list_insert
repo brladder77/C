@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct NODE {
+	int data;
+	struct NODE* link;
+};
+
+int main() {
+	struct NODE* head = (NODE*)calloc(40, sizeof(struct NODE));
+
+	struct NODE* node1 = (NODE*)calloc(40, sizeof(struct NODE));
+	head->link = node1;
+	node1->data = 10;
+
+	struct NODE* node2 = (NODE*)calloc(40, sizeof(struct NODE));
+	node1->link = node2;
+	node2->data = 20;
+
+	struct NODE* node4 = (NODE*)calloc(40, sizeof(struct NODE));
+	node2->link = node4;
+	node4->data = 40;
+
+	node4->link = NULL;
+
+	struct NODE* curr = head->link;
+	puts("- 삽입전 -");
+	while (curr != NULL) {
+		printf("%d\n", curr->data);
+		curr = curr->link;
+	}
+	//삽입 시작
+	NODE* NEW = (NODE*)calloc(40, sizeof(struct NODE));
+	NEW->data = 30;
+	NEW->link = node2->link; //node2의 링크 필드 값을 new 링크 필드에 저장
+	node2->link = NEW;
+
+	puts("- 삽입 후 -");
+	struct NODE* curr1 = head->link;
+	while (curr1 != NULL) {
+		printf("%d\n", curr1->data);
+		curr1 = curr1->link;
+	}
+	free(node1); free(node2); free(node4);
+	free(head);
+  
+  return 0;
+}
