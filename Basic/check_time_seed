@@ -1,0 +1,34 @@
+#include  <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+
+	srand(time(NULL));
+	int a = rand();
+	int b = rand();
+  
+	srand(1);
+	int c = rand();
+	int d = rand();
+  
+	srand(2);
+	int e = rand();
+  
+	srand(3);
+	int f = rand();
+  
+	srand(1);
+	int g = rand();
+	int h = rand();
+  
+	printf("%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d\n", a, b, c, d, e,f,g,h);
+
+	srand(time(NULL));
+	for (int i = 0; i < 10; i++)
+		printf(" %d\n", rand());
+	printf("%d", time(NULL));
+  
+  return 0;
+  
+}
