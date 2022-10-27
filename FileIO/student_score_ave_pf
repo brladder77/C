@@ -1,0 +1,30 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main() {
+
+	FILE* IN, * OUT;
+	int rec1, rec2, rec3, Tot;
+	float Ave;
+	const char* pass; //2017 이후로 const 안 붙이면 오류발생
+	
+	IN = fopen("d.txt", "r");
+	OUT = fopen("f.txt", "w");
+
+	fscanf(IN, "%d %d %d", &rec1, &rec2, &rec3);
+	Tot = rec1 + rec2 + rec3;
+
+	Ave = Tot / 3;
+	if (Ave >= 60) {
+		pass = "pass";
+	}
+	else
+		pass = "non-pass";
+
+	fprintf(OUT, "%4d %4d %4d %4d %5.1f %5s", rec1, rec2, rec3, Tot, Ave, pass);
+	fclose(IN);
+	fclose(OUT);
+  
+  return 0;
+  
+}
