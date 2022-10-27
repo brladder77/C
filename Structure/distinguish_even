@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int pro1(int num){
+
+	if ((num % 2) == 0)
+		return(true);
+	else
+		return(false);
+}
+
+int main() {
+
+	int a;
+  
+	printf("정수 하나를 입력하시오 : ");
+	scanf_s("%d", &a);
+  
+	if (pro1(a))
+		printf("짝수입니다.\n");
+	else
+		printf("홀수입니다.\n");
+    
+    return 0;
+}
