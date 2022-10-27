@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct NODE {
+	int data;
+	struct NODE* link;
+};
+
+int main() {
+	struct NODE* head = NULL;
+
+	struct NODE* node1 = (NODE*)calloc(8, sizeof(struct NODE));
+	head = node1;
+	node1->data = 10;
+
+	struct NODE* node2 = (NODE*)calloc(8, sizeof(struct NODE));
+	node1->link = node2;
+	node2->data = 20;
+
+	struct NODE* node3 = (NODE*)calloc(8, sizeof(struct NODE));
+	node2->link = node3;
+	node3->data = 30;
+
+	struct NODE* node4 = (NODE*)calloc(8, sizeof(struct NODE));
+	node3->link = node4;
+	node4->data = 40;
+
+	node4->link = node1;
+	puts("- 삭제 전 -");
+	head = node1;
+	struct NODE* curr = node1;
+
+	do {
+		printf("%d\n", curr->data);
+		curr = curr->link;
+	} while (curr != head);
+
+	puts("- 삭제 후 -");
+	struct NODE* pre, * old;
+	pre = node2;
+	old = node3;
+	pre->link = old->link;
+	//근데 삭제든 삽입이든 왜 굳이 새로운 노드를 만들어서 하는지 잘 모르겠다
+	//기존 노드 수정이 번거로워서 그런가?
+	//새로운 노드를 만들면 괜히 공간만 더 차지하고 귀찮은 것이 아닌가?
+	//실무를 직접 봐야할 듯
+
+	curr = node1;
+
+	do {
+		printf("%d\n", curr->data);
+		curr = curr->link;
+	} while (curr != head);
+
+	free(node1); free(node2); free(node3); free(node4);
+  
+  return 0;
+}
