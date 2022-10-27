@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main() {
+
+	char my_ch[] = { 'I','L','o','v','e','Y','o','u' };
+	int i,j;
+  
+	for (i = 0; i < 8; i++) {
+		for (j = 0; j <= i; j++)
+			printf("%c", my_ch[j]);
+		printf("\n\n");
+	}
+  
+  return 0;
+}
