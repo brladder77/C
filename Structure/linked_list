@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h> //standard library
+
+struct NODE {    //연결 리스트의 노드 구조체
+	const char* dat;
+	struct NODE* link;
+};
+
+int main() {          //calloc은 동적할당 malloc은 정적할당 의미
+	struct NODE* week = (NODE*)calloc(1, sizeof(struct NODE));  //머리 노드 생성
+	// 머리 노드는 데이터를 저장하지 않음
+	// struct NODE 사이즈의 메모리 1개 할당
+
+	struct NODE* node1 = (NODE*)calloc(1, sizeof(struct NODE)); //첫 번째 노드 생성
+	week->link = node1; //머리 노드 다음은 첫 번째 노드
+	node1->dat = "월";
+
+	struct NODE* node2 = (NODE*)calloc(1, sizeof(struct NODE));
+	node1->link = node2;
+	node2->dat = "화";
+
+	struct NODE* node3 = (NODE*)calloc(1, sizeof(struct NODE));
+	node2->link = node3;
+	node3->dat = "수";
+
+	node3->link = NULL;
+
+	struct NODE* curr = week->link; //연결 리스트 순회용 포인터에 첫 번째 노드의 주소 저장
+	//curr = current point
+	while (curr != NULL){
+		printf("%s\n", curr->dat);
+		curr = curr->link;   //데이터 출력 후 커런트가 노드의 링크를 가리키게 함
+		//그러면 자연스럽게 다음 노드의 시작 주소를 가리킴
+	}
+	free(node2);  //노드 메모리 해제
+	free(node1);  //calloc 사용시 free 필수
+	free(week);
+  
+	return 0;
+}
