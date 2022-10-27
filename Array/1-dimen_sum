@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+
+	int Arr1[5] = { 37,54,3,7,55 }, Arr2[5] = { 1,35,67,53,8 }, Arr3[5];
+	int i;
+  
+	for (i = 0; i < 5; i++) {
+		Arr3[i] = Arr1[i] + Arr2[i];
+	}
+	for (i = 0; i < 5; i++) 
+		printf("%4d", Arr1[i]);
+	puts("");
+	for (i = 0; i < 5; i++)
+		printf("%4d", Arr2[i]);
+	puts("");
+	for (i = 0; i < 5; i++)
+		printf("%4d", Arr3[i]);
+    
+    return 0;
+    
+}
