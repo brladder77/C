@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main() {
+	
+  struct LIST {
+		int data;
+		LIST* next;
+	};
+  
+	struct LIST item, * p;
+	item.data = 100;
+	item.next = NULL;
+	p = &item;
+  
+	printf("변수표현 : %d, 포인터표현 : %d \n", item.data, p->data);
+  
+  return 0;
+}
