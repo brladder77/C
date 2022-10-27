@@ -1,0 +1,14 @@
+#include <stdio.h>
+#define MAX 80
+
+int main() {
+
+	FILE* IN;
+	char str_Arr[MAX];
+	IN = fopen("in.txt", "r");
+	while (fgets(str_Arr, MAX, IN) != NULL)
+		puts(str_Arr); //화면에 출력하라
+	fclose(IN);
+  
+  return 0;
+}
