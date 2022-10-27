@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+int main() {
+  
+	float num1, num2, num3;
+	
+  printf("3개의 숫자를 입력하시오 : ");
+  scanf_s("%f %f %f", &num1, &num2, &num3);
+	
+  float a;
+	if (num2 > num1) {		//if num2 is bigger than num1
+		a = num2;		
+		num2 = num1;
+		num1 = a;			//change switch num2 and num1
+	}
+	if (num3 > num1) {
+		a = num3;
+		num3 = num2;
+		num2 = num1;
+		num1 = a;
+	}
+	if (num3 > num2) {
+		a = num3;
+		num2 = num3;
+		num2 = a;
+	}
+	if (num3*num3 + num2* num2 > num1*num1) {
+		if (num1==num2 && num2==num3) {
+			printf("정삼각형\n");
+		}
+		else {
+			printf("예각삼각형\n");
+		}
+	}
+	else if (num3 * num3 + num2 * num2 == num1 * num1) {
+		printf("직각삼각형\n");
+	}
+	else if (num3 * num3 + num2 * num2 < num1 * num1) {
+		if (num1 > num2 + num3) {
+			printf("삼각형이 아닙니다.\n");
+		}
+		else {
+			printf("예각삼각형\n");
+		}
+	}
+  
+  return 0;
+}
