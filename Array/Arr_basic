@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+float abs(float x) {
+	if (x < 0)
+		x = (-x);
+	return x;
+}
+
+int main() {
+
+	int Arr[7];
+	printf("정수 7개를 차례로 입력하시오 :");
+	float ave;
+	int sum=0, i;
+	for (i = 0; i < 7; i++) {
+		scanf_s("%d", &Arr[i]);
+		sum += Arr[i];
+	}
+	ave = float(sum) / 7;
+  
+	int num1;
+	float num;
+	num = abs(Arr[0] - ave);
+	for (i = 1; i < 7; i++) {
+		if (abs(num) > abs(ave - float(Arr[i]))) {
+			num = abs(ave - Arr[i]);
+			num1 = i;
+		}
+	}
+  
+	printf("평균에 가장 가까운 수는 %d 입니다.\n", Arr[num1]);
+	printf("합은 %d 입니다.\n", sum);
+	printf("평균은 %.2f 입니다.\n", ave);
+  
+  return 0;
+}
