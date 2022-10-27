@@ -1,0 +1,23 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main() {
+
+	int Arr_scr[3][3] = { 86,89,96,67,89,77,89,68,69 };
+	int i, j, tot[3] = { 0,0,0 }; //tot 꼭 초기화 시켜줘야함
+	int num[3] = { 1,2,3 };
+	float ave[3];
+  
+	for (i = 0; i < 3; i++) {
+		for (j = 0; j < 3; j++) {
+			tot[i] += Arr_scr[i][j];
+		}
+	}
+	for (i = 0; i < 3; i++)
+		ave[i] = tot[i] / 3;
+	for(i = 0; i < 3; i++)
+		printf("%d번 총점 : %d  평균 : %5.1f\n", num[i], tot[i], ave[i]);
+    
+    return 0;
+    
+}
