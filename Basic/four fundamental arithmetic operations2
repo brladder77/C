@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main()
+{
+	int number1, number2, number3, number4, number5, number6;
+  
+	printf("숫자1을 입력하시오 : ");
+	scanf_s("%d", &number1);
+	printf("숫자2를 입력하시오 : ");
+	scanf_s("%d", &number2);
+	number3 = number1 + number2;
+	number4 = number1 - number2; number5 = number1 / number2;
+	number6 = number1 * number2;
+  
+	printf("숫자1 : %d\n", number1);
+	printf("숫자2 : %d\n", number2);
+	printf("숫자1 + 숫자2 = %d\n", number3);
+	printf("숫자1 - 숫자2 = %d\n", number4);
+	printf("숫자1 / 숫자2 = %d\n", number5);
+	printf("숫자1 * 숫자2 = %d\n", number6);
+  
+  return 0;
+  
+}
