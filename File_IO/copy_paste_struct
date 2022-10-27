@@ -1,0 +1,23 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#define NUM 10
+
+struct REC {
+	char irum[NUM];
+	char Phone[NUM];
+};
+void main() {
+	FILE* IN, * OUT;
+	static struct REC Arr[NUM];
+
+	OUT = fopen("phone.out.txt", "w");
+	IN = fopen("phone.dat.txt", "r");
+	if (IN != NULL) {
+		fread(Arr, sizeof(struct REC), NUM, IN);
+		fwrite(Arr, sizeof(struct REC), NUM, OUT);
+	}
+	else
+		puts("파일을 열 수 없습니다.");
+	fclose(IN);
+	fclose(OUT);
+} //txt와 같이 파일 이름 분명하게 명시해줘야함
