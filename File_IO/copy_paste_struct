@@ -6,7 +6,9 @@ struct REC {
 	char irum[NUM];
 	char Phone[NUM];
 };
-void main() {
+
+int main() {
+
 	FILE* IN, * OUT;
 	static struct REC Arr[NUM];
 
@@ -20,4 +22,7 @@ void main() {
 		puts("파일을 열 수 없습니다.");
 	fclose(IN);
 	fclose(OUT);
-} //txt와 같이 파일 이름 분명하게 명시해줘야함
+	
+	return 0;
+} 
+//txt와 같이 파일 이름 분명하게 명시해줘야함
