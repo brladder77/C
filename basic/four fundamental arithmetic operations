@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+int main(void)
+{
+	int x, y, a;
+
+	printf("사칙연산 프로그램\n");
+	printf("첫번째 수를 입력하시오:");
+	scanf_s("%d", &x);
+	printf("두번째 수를 입력하시오:");
+	scanf_s("%d", &y);
+	printf("1번 덧셈\n2번 뺄셈\n3번 곱셈\n4번 나눗셈\n수행하고 싶은 연산의 번호를 입력하시오:");
+	scanf_s("%d", &a);
+
+	if (a == 1)
+	{
+		printf("덧셈 결과 : %d\n", x + y);
+	}
+	else if (a == 2)
+	{
+		if (x >= y)
+		{
+			printf("뺄셈 결과(x > y) : %d\n", x - y);
+		}
+		else
+		{
+			printf("뺄셈 결과(x < y) : %d\n", y - x);
+		}
+	}
+	else if (a == 3)
+	{
+		printf("곱셈 결과 : %d\n", x * y);
+	}
+	else if (a == 4)
+	{
+		if (x >= y)
+		{
+			printf("나눗셈 결과(x > y) : %d\n", x / y);
+		}
+		else
+		{
+			printf("나눗셈 결과(x < y) : %d\n", y / x);
+		}
+
+	}
+
+	return 0;
+}
