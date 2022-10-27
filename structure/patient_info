@@ -1,0 +1,30 @@
+#include <stdio.h>
+#define N 5
+
+int main() {
+
+	struct Patient_file {
+		int Num;
+		char Name[10];
+		int Age;
+		int Hei;
+		int Wei;
+		char Obe[10];
+		char Doc[10];
+	} info[N];
+
+	int i;
+	for (i = 0; i < N; i++) {
+		scanf_s("%d%s%d%d%d%s%s",
+			&info[i].Num, info[i].Name, &info[i].Age, &info[i].Hei,
+			&info[i].Wei, info[i].Obe, &info[i].Doc);
+	}
+
+	for (i = 0; i < N; i++) {
+		printf("%d %s %d %d %d %s %s",
+			info[i].Num, info[i].Name, info[i].Age, info[i].Hei,
+			info[i].Wei, info[i].Obe, info[i].Doc);
+	}
+
+	return 0;
+}
