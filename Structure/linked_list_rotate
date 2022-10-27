@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct NODE {
+	int data;
+	struct NODE* link;
+};
+
+int main() {
+	struct NODE* head = NULL;
+
+	struct NODE* node1 = (NODE*)calloc(8, sizeof(struct NODE));
+	head = node1;
+	node1->data = 10;
+
+	struct NODE* node2 = (NODE*)calloc(8, sizeof(struct NODE));
+	node1->link = node2;
+	node2->data = 20;
+
+	struct NODE* node4 = (NODE*)calloc(8, sizeof(struct NODE));
+	node2->link = node4;
+	node4->data = 40;
+
+	node4->link = node1;
+
+	puts("- 출력 시작 -");
+	head = node1;
+	struct NODE* curr = node1;
+	do {
+		printf("%d \n", curr->data);
+		curr = curr->link;
+	} while (curr != head);
+
+	puts("- 삽입 후 -");
+
+	
+	struct NODE* pre = node2;
+	struct NODE* NEW = (NODE*)calloc(8, sizeof(struct NODE));
+	NEW->link = pre->link; //pre 링크를 먼저 new에 넣어서 new가 node4를 가리키게 함
+	NEW->data = 30;
+	pre->link = NEW; //이후에 pre링크 변경
+  //포인터라 주소에 들어있는 값 자체가 변경되는 듯
+	
+
+	/*
+	struct NODE* NEW = (NODE*)calloc(8, sizeof(struct NODE));
+	node2->link = NEW;
+	NEW->data = 30;
+	NEW->link = node4;
+	*/
+
+	/*
+	struct NODE* NEW = (NODE*)calloc(8, sizeof(struct NODE));
+	NEW->data = 30;
+	NEW->link = node2->link;
+	node2->link = NEW;
+	*/
+	
+	do {
+		printf("%d \n", curr->data);
+		curr = curr->link;
+	} while (curr != head);
+
+
+	free(node1); free(node2); free(node4); free(NEW);
+  
+  return 0;
+}
