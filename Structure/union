@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+
+	union MyUnion {
+		char sex; int num; int age;
+	}member;
+  
+	member.sex = 'm';
+	member.num = 10;
+	member.age = 20;
+  
+	printf("%d\n", member.num);
+	//최종선언 값이 공유된 메모리에 저장된 것!
+  
+  return 0;
+}
