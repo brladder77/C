@@ -44,5 +44,25 @@ int main() {
 		p++;
 	}
 	
+		struct Record {
+		int Num;
+		char Nam[10];
+		int Age;
+		int Hei;
+		int Wei;
+		char Dep[10];
+		char Doc[10];
+	}pat[N];
+
+	int i;
+	for (i = 0; i < N; i++) {
+		scanf_s("%d%s%d%d%d%s%s",
+			&pat[i].Num, pat[i].Nam,10, &pat[i].Age, &pat[i].Hei, &pat[i].Wei, pat[i].Dep,10, pat[i].Doc,10);
+	}
+	for (i = 0; i < N; i++) 
+		printf("%5d  %s  %5d %5d %5d  %s  %s\n",
+			pat[i].Num, pat[i].Nam, pat[i].Age, pat[i].Hei, pat[i].Wei, pat[i].Dep, pat[i].Doc);
+			
+	
 	return 0;
 }
