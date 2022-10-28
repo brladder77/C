@@ -2,21 +2,25 @@
 
 int main() {
 
-	int my_gr[5][4];
-	int i, j, x = 0;
-  
+	int my_gr[5][5];
+	int x = 0, i, j, t;
 	for (i = 0; i < 5; i++) {
-		for (j = 0; j < 4; j++) {
-			x++;
-			my_gr[i][j] = x;
+		x++;
+		t = x;
+		for (j = 0; j < 5; j++) {
+			if (t > 5)
+				my_gr[i][j] = 0;
+			else
+				my_gr[i][j] = t;
+			t++;
 		}
 	}
-  
 	for (i = 0; i < 5; i++) {
-		for (j = 0; j < 4; j++) {
-			printf("%3d", my_gr[i][j]); //칸 잡아서 출력하는거 기억하자!
+		for (j = 0; j < 5; j++) {
+			printf("%3d", my_gr[i][j]);
 		}
 		puts("");
 	}
-  return 0;
+	
+	return 0;
 }
