@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+
+	char* str1 = "Source code";
+	char* str2 = "Source book";
+	int res1, res2;
+  
+	res1 = strcmp(str1, str2);
+	res2 = strncmp(str1, str2, 6);
+  
+	printf("%d %d \n", res1, res2);
+  
+  return 0;
+}
