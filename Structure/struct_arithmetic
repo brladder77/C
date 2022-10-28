@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+	struct Scr {
+		int num;
+		int kor;
+		int eng;
+		int math;
+		int tot;
+		float ave;
+	}score;
+
+	//struct Scr score = {1,100,99,98};
+	scanf_s("%d%d%d%d", &score.num, &score.kor, &score.eng, &score.math);
+	score.tot = score.kor + score.eng + score.math;
+	score.ave = score.tot / 3;
+
+	printf("번호 : %d  국어 : %d  영어 : %d  수학 : %d  총점 : %d  평균 : %.2f\n",
+		score.num, score.kor, score.eng, score.math, score.tot, score.ave);
+    
+    return 0;
+}
