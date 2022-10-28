@@ -21,5 +21,28 @@ int main() {
 		printf("%d번 학생의 총점은 %d 이고 평균은 %.2f 이다.\n", Scr[i].Num, Scr[i].Tot, Scr[i].Ave);
 	}
 	
+	struct Std {
+		int Num;
+		int Kor;
+		int Eng;
+		int Mat;
+		int Tot;
+		float Ave;
+	}score[N];
+	struct Std * p;
+
+	int i;
+	printf("번호, 국어 성적, 영어 성적, 수학 성적을 차례로 입력하시오.\n");
+	for (i = 0; i < N; i++) {
+		scanf_s("%d%d%d%d", &score[i].Num, &score[i].Kor, &score[i].Eng, &score[i].Mat);
+		score[i].Tot = score[i].Kor + score[i].Eng + score[i].Mat;
+		score[i].Ave = score[i].Tot / N;
+	}
+	p = scr;
+	for (i = 0; i < N; i++) {
+		printf("%d번 학생의 총점은 %d이고 평균은 %.2f 입니다.\n", p->Num, p->Tot, p->Ave);
+		p++;
+	}
+	
 	return 0;
 }
