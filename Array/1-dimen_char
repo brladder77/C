@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+
+	char my_ch[] = "ILoveYou";
+	int i, j, len;
+	len = strlen(my_ch); //string 쓴 이유. 길이 나온다
+  
+	for (i = 0; i < len; i++) {
+		for (j = 0; j <= i; j++)
+			printf("%c", my_ch[j]);
+		puts("\n");
+	}
+  return 0;
+}
