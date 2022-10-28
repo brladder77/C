@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+
+	struct Student {
+		int st_num;
+		int age;
+		float height;
+		float weight;
+	};
+
+	struct Student ClassA[3] = { {1,10,120.1,25.0},{2,12,135.2,30.0 }, { 3,11,130.0,28.5 }};
+	int Size, i;
+
+	for (i = 0; i < 3; i++) {
+		printf("%d번 나이 : %d  키 : %5.1f  몸무게 : %5.1f\n",
+			ClassA[i].st_num, ClassA[i].age, ClassA[i].height, ClassA[i].weight);
+	}
+
+	Size = sizeof(ClassA);
+	printf("ClassA의 크기는 %d byte 입니다. \n", Size);
+  
+  return 0;
+}
