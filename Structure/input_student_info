@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+
+	struct STUD {
+		int Number;
+		char Name[10];
+		//char *Name;
+		int Class;
+	};
+	typedef struct STUD2 {
+		int Number;
+		char Name[10];
+		//char *Name;
+		int Class;
+	}S;
+	struct STUD std;
+	
+	
+	std.Number = 1;
+	//std.Name = "전우진"; 이러게는 error 발생
+	strcpy_s(std.Name, 10, "전우진");
+	std.Class = '1';
+
+	STUD a = { 1,"woojin",12 }, b;
+	S c = { 1,"sdf",23 };
+	
+
+	scanf_s("%d %d %s", &b.Number, &b.Class, b.Name,10);
+	//scanf 이용시 포인터로 하면 에러발생
+
+	printf("%d\n", std.Number);
+	printf("%d\n", std.Class);
+	printf("%s\n", std.Name);
+
+	printf("%d\n", a.Number);
+	printf("%d\n", a.Class);
+	printf("%s\n", a.Name);
+
+	printf("%d\n", b.Number);
+	printf("%d\n", b.Class);
+	printf("%s\n", b.Name);
+
+	printf("%d\n", c.Number);
+	printf("%d\n", c.Class);
+	printf("%s\n", c.Name);
+
+	return 0;
+}
