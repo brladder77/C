@@ -1,22 +1,25 @@
 #include <stdio.h>
+#define N 5
 
 int main() {
-	struct Scr {
-		int num;
-		int kor;
-		int eng;
-		int math;
-		int tot;
-		float ave;
-	}score;
 
-	//struct Scr score = {1,100,99,98};
-	scanf_s("%d%d%d%d", &score.num, &score.kor, &score.eng, &score.math);
-	score.tot = score.kor + score.eng + score.math;
-	score.ave = score.tot / 3;
+	struct Student {
+		int Num;
+		int Kor;
+		int Eng;
+		int Math;
+		int Tot;
+		float Ave;
+	};
 
-	printf("번호 : %d  국어 : %d  영어 : %d  수학 : %d  총점 : %d  평균 : %.2f\n",
-		score.num, score.kor, score.eng, score.math, score.tot, score.ave);
-    
-    return 0;
+	struct Student Scr[N] = { { 1,80,90,92 }, { 2,98,88,88 }, { 3,90,82,88 }, { 4,92,90,87 }, {5, 78, 88, 84} };
+	int i;
+	
+	for (i = 0; i < N; i++) {
+		Scr[i].Tot = Scr[i].Kor + Scr[i].Eng + Scr[i].Math;
+		Scr[i].Ave = Scr[i].Tot / 3;
+		printf("%d번 학생의 총점은 %d 이고 평균은 %.2f 이다.\n", Scr[i].Num, Scr[i].Tot, Scr[i].Ave);
+	}
+	
+	return 0;
 }
