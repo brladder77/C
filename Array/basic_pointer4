@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+	char Arr[] = { 'H','E','L','L','O' };
+	char* p;
+	int i;
+	p = Arr;
+	puts("이것은 값의 표현입니다");
+	for (i = 0; i < 5; i++)
+		printf("%c %c %c \n", *(p + i), *(Arr + i), Arr[i]);
+
+	puts("이것은 주소의 표현입니다");
+	for (i = 0; i < 5; i++)
+		printf("%d %d %d \n", p + i, Arr + i, &Arr[i]);
+    
+    return 0;
+}
