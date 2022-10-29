@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main() {
+
+	int* p, ** pp;
+	int A[2][3] = { 10,20,30,40,50,60 };
+
+	p = A[1];  //2번째 행의 시작 주소를 가리키는 것!!!!
+	pp = &p; p += 2; 
+	printf("%d %u\n", *p, *pp);
+
+	p -= 2;
+	printf("%d %u", *p, *pp);
+
+	return 0;
+}
