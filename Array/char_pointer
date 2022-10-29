@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main() {
+	char A = 'Y';
+	char* p;
+
+	char Arr[] = "Hello!";
+	char* pp;
+	
+	p = &A;
+	pp = Arr;
+	printf("p가 가리키는 곳의 값은 %c입니다.\n", *p);
+	while (*pp != '\0') {
+		printf("%c", *pp);
+		pp++;
+	}
+  
+  return 0;
+}
