@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main(void)
+{
+	char s[] = "100";		            //자릿수가 정해지지 않은 문자배열 s를 100이라는 문자로 초기화
+	int value;				//정수형 value 선언
+
+	sscanf_s(s, "%d", &value);		//string 스캔 명령어로 s 배열값을 value 값에 수치로 저장
+	printf("%d \n", value);		//value 정수형으로 출력 (100)
+
+	value++;				//value 값에 1 더함
+
+	sprintf_s(s, "%d", value);		//스트링 프린트 명령어로 value 값을 배열 s 에 넣어줌
+	printf("%s \n", s);			//배열 s 출력하면 sprintf에서 받았던 value값인 101이 출력됨
+
+	return 0;
+}
