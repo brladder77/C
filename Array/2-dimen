@@ -1,0 +1,39 @@
+#include <stdio.h>
+#define ROWS 4
+#define COLS 3
+
+int main(void)
+{
+	int s[ROWS][COLS] = {
+		{46,79,78},
+	{35,57,28},
+	{43,68,76},
+	{56,78,98}
+	};
+
+	int f[ROWS][COLS] = {
+		{78,35,99},
+	{85,82,34},
+	{58,69,29},
+	{34,59,35}
+	};
+
+	int t[ROWS][COLS];
+
+	int a = 0, b = 0, c = 0, d = 0;
+	for (a = 0; a < ROWS; a++)
+		for (b = 0; b < COLS; b++)
+			t[a][b] = s[a][b] + f[a][b];
+
+	for (a = 0; a < ROWS; a++) {
+		for (b = 0; b < COLS; b++)
+			printf("%03d     ", t[a][b]);
+		printf("\n");
+	}
+	printf("\n");
+
+	for (a = 0; a < ROWS; a++) {
+		for (b = 0; b < COLS; b++)
+			printf("%03d     ", s[a][b] - f[a][b]);
+		printf("\n");
+	}
