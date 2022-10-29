@@ -1,0 +1,88 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define _CRT_SECURE_NO_WARNINGS
+
+typedef struct Node {
+	struct Node* left;
+	int num;
+	struct Node* right;
+} Node;
+
+int menu(void);
+void add(Node** root);
+void prt(Node* root);
+void insertNode(Node** root, int num);
+
+int main(void) {
+	Node* root = NULL;    //root(head) 초기화
+	while (1) {
+		switch (menu()) {
+		case 1:
+			add(&root);
+			break;
+		case 2:
+			prt(root);
+			break;
+		case 3:
+			return 0;
+		}
+		puts("\n");
+	}
+	return 0;
+}
+int menu(void) {
+	int n;
+	printf("1. 추가   ");
+	printf("2. 출력   ");
+	printf("3. 중지   ");
+	printf("\n번호 :  ");
+	scanf_s("%d", &n);
+	return n;
+}
+
+void add(Node** root) {		//왜 이중포인터를 쓰는거죠?
+	int num;
+	printf("입력값 : ");
+	scanf_s("%d", &num);
+	insertNode(root, num);
+}
+
+void prt(Node* root) {
+	if (root) {
+		prt(root->left);
+		printf(" %d ", root->num);
+		prt(root->right);
+	}
+}
+
+void insertNode(Node** root, int num) {
+	Node* node1 = NULL;
+	Node* node2 = *root;
+	Node* newNode;
+
+	while (node2) {
+		if ((node2->num) == num) {
+			printf("Data exists already");
+			return;
+		}
+		node1 = node2;
+		if ((node2->num) > num)
+			node2 = node2->left;
+		else
+			node2 = node2->right;
+	}
+
+	newNode = (Node*)malloc(sizeof(Node));
+	newNode->num = num;
+	(newNode->left) = (newNode->right) = NULL;
+
+	if (node1) {
+		if ((node1->num) > num)
+			node1->left = newNode;
+		else
+			node1->right = newNode;
+	}
+	else
+		*root = newNode;
+} //대략적인 느낌은 이해가 가나 포인터 변수, 특히나 이중포인터는
+//어떻게 다룰지 막막쓰...
