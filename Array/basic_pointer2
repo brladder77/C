@@ -1,0 +1,27 @@
+#include <stdio.h>
+void main() {
+	int Arr[] = { 10,20,30,40,50 };
+	int i, * p;
+
+	p = Arr;
+
+	for (i = 0; i < 5; i++)
+		printf("%d %d\n", *(p + i), *(Arr + i));
+
+	p++;
+	printf("현재 p가 가리키는 곳의 값 => %d \n", *p);
+
+	*p = 200;
+	*(p + 1) = -1;
+	// 주소에다가 값을 넣은 것이다. 잘 확인하자
+
+	p += 3;
+	printf("현재 p가 가리키는 곳의 값 => %d \n", *p);
+
+	p--;
+	printf("현재 p가 가리키는 곳의 값 => %d \n", *p);
+
+	for (i = 0; i < 5; i++)
+		printf("%d %d\n", (Arr + i), Arr[i]);
+
+}
