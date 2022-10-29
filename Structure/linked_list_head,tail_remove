@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Dnode {
+	int data;
+	Dnode* prev;
+	Dnode* next;
+}node;
+
+node* head, * tail;
+
+node* makenode(int data) {
+	node* p = (node*)malloc(sizeof(node));
+	p->data = data;
+	p->prev = NULL;
+	p->next = NULL;
+	return p;
+}
+
+void print() {
+	node* p;
+	p = head;
+	while (p->next != tail) {
+		printf("%d-->", p->data);
+		p = p->next;
+	}
+	printf("%d  ", p->data); puts("출력 끝");
+}
+
+void init() {
+	head = (node*)malloc(sizeof(node));
+	tail = (node*)malloc(sizeof(node));
+	head->data = 0;
+	tail->data = 0;
+
+	head->next = tail;
+	head->prev = head;
+	tail->prev = head;
+	tail->next = tail;
+}
+
+void push_back(int data) {
+	node* newnode = makenode(data);
+	node* p;
+	p = tail;
+	p->prev->next = newnode;
+	newnode->prev = p->prev;
+	p->prev = newnode;
+	newnode->next = p;
+}
+
+//삭제
+
+void removeat(int val) {
+	node* p;
+	p = head->next;
+	while (p->next != tail) {
+		if (p->data == val) {
+			p->next->prev = p->prev;
+			p->prev->next = p->next;
+			free(p);
+			return;
+		}
+		p = p->next;
+	}
+}
+
+int main() {
+	init(); push_back(10); push_back(20); push_back(30);
+	puts("------ 삭제 전 ------");
+	print();
+	puts("\n------ 삭제 후 ------");
+	removeat(20);
+	print();
+  
+  return 0;
+}
