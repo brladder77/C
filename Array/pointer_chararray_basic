@@ -14,5 +14,14 @@ int main() {
 	for (i = len; i >= 0; i--) {
 		printf("%c", *(p+i));
 	}
+	
+	for (i = 0; i <= len; i++) {
+		if (*p == ' ') {
+			sum++;
+		}
+		p++;
+	}
+	printf("단어의 개수는 %d 입니다.\n ", sum);	
+
 	return 0;
 }
