@@ -1,0 +1,127 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+//int를 스택 element의 자료형으로 정의
+
+//스택의 노드 구조 정의
+typedef struct stackNode {
+	int data;	//정수형 타입 데이터(데이터 필드)
+	//노드 포인터 (링크 필드)
+	struct stackNode* link;
+} stackNode;
+
+//스택의 top노드를 지정하기 위한 포인터 top 선언
+stackNode* top;
+
+//스택 삽입 연산 
+void push(int item) {
+	//메모리 할당(할당한 주소 temp에 넣음)
+	stackNode* temp = (stackNode*)malloc(sizeof(stackNode));
+	//데이터를 temp의 데이터필드에 넣음
+	temp->data = item;
+	//temp의 주소를 top에 넣어줌
+	temp->link = top;
+	top = temp;
+}
+
+//스택의 삭제 후 반환 연산
+int pop() {
+	int item;
+	stackNode* temp = top;		//정확히 뭘 선언한거지?
+	//현재 스택이 공백 리스트인 경우
+	if (top == NULL) {
+		printf("\n\n Stack is empty !\n");
+		return 0;
+	}
+	//현재 스택이 공백 리스트가 아닌 경우
+	else {
+		//item에 temp의 데이터를 줌
+		item = temp->data;
+		//top에 temp의 링크를 줌(밑의 원소를 가르키게 됨)
+		top = temp->link;
+		//메모리에서 삭제
+		free(temp);
+		//자료값 리턴
+		return item;  //빠진 데이터를 돌려주는 듯?
+	}
+}
+
+//스택의 top 원소 검색 연산
+int peek() {
+	int item;
+	//현재 스택이 공백 리스트인 경우
+	if (top == NULL) {
+		printf("\n\n Stack is empty !\n");
+		return 0;
+	}
+	//현재 스택이 공백 리스트가 아닌 경우
+	else {
+		//top의 값을 item에 넣어줌
+		item = top->data;
+		//top의 값 리턴
+		return item;
+	}
+}
+
+//스택의 삭제 연산(리턴x)
+void del() {
+	stackNode* temp;
+	//현재 스택이 공백 리스트인 경우
+	if (top == NULL) {
+		printf("\n\n Stack is empty !\n");
+	}
+	//현재 스택이 공백 리스트가 아닌 경우
+	else {
+		temp = top;
+		top = top->link;
+		//메모리 삭제
+		free(temp);
+	}
+}
+
+//스택의 내용 출력 연산
+void printStack() {
+	//p는 top이랑 같음
+	stackNode* p = top;
+	printf("\n 스택 ");
+	//NULL이 아닐때까지
+	while (p) {
+		printf("%d", p->data);
+		//다음 주소로
+		p = p->link;
+	}
+	printf(" ");
+}
+
+int main(void) {
+	//초기값 item 선언, top은 NULL로 초기화
+	int item;
+	top = NULL;
+
+	printStack();
+	push(1);
+	printStack();
+	push(2);
+	printStack();
+	push(3);
+	printStack();
+
+	item = peek();
+	printStack();
+	printf("peek top=>%d", item);
+
+	del();
+	printStack();
+
+	item = pop();
+	printStack();
+	printf("\n pop top => %d", item);
+
+	item = pop();
+	printStack();
+	printf("\n pop top => %d", item);
+  
+  return 0;
+}
