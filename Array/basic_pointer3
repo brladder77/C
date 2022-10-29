@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main() {
+	float Arr[] = { 10.1,10.2,30.3,40.4,50.5 };
+	float* p;
+	int i;
+	p = Arr;
+	for (i = 0; i < 5; i++)
+		printf("%4.1f %4.1f \n", *(p + i), *(Arr + i));
+
+	p++;
+	*p += 0.1;
+
+	for (i = 0; i < 5; i++)
+		printf("%4.1f \n", *(Arr + i));
+    
+    return 0;
+}
