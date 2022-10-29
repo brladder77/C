@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// 구조체 정의
+
+typedef struct Dnode {
+	int data;
+	Dnode* prev;
+	Dnode* next;
+} node;
+
+node* head, * tail;
+
+// 노드 생성
+
+node* makenode(int data)
+{
+	node* p = (node*)malloc(sizeof(node));
+	p->data = data;
+	p->next = NULL;
+	p->prev = NULL;
+	return p;
+}
+
+// 출력
+
+void print() {
+	node* p;
+	p = head;
+	while (p->next != tail) {
+		printf("%d--> ", p->data);
+		p = p->next;
+	}
+	printf("%d  ", p->data); puts("출력끝");
+}
+
+// head 와 tail 초기화
+
+void init() {
+	head = (node*)malloc(sizeof(node));
+	tail = (node*)malloc(sizeof(node));
+	head->data = 0;
+	tail->data = 0;
+
+	head->next = tail;
+	head->prev = head;
+	tail->prev = head;
+	tail->next = tail;
+}
+
+// 노드 삽입
+
+void push_back(int data) {
+	node* newnode = makenode(data);
+	node* p;
+	p = tail;					//p노드 생성
+	p->prev->next = newnode;	//p의 앞 노드의 다음은 newnode이다
+	newnode->prev = p->prev;	//newnode의 앞 노드는 p의 앞 노드이다
+	p->prev = newnode;			//p의 앞 노드는 newnode이다
+	newnode->next = p;			//newnode의 다음 노드는 p이다
+}  //https://devbot.tistory.com/entry/3%EC%9E%A5-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0%EC%9D%B4%EC%A4%91-%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8
+
+int main() {
+	init(); push_back(10); push_back(20); push_back(30);
+	print();
+  
+  return 0;
+}
