@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main(void)
+{
+	double  res;
+	int i;
+
+	puts(" 2 ^ N 알아보기 \n ");
+	for (i = 1; i <= 10; i++)
+	{
+		res = pow(2.0, i);
+		printf(" 2 ^ %2d = %5.0f \n", i, res);
+	}
+
+	return 0;
+}
