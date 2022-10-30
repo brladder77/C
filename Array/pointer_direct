@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+	int a[4] = { 1,3,6,8 };
+	int* pa = &a[0];
+
+	printf("%d %d %d %d\n", *pa, *(pa + 1), *(pa + 2), *(pa + 3));
+	printf("%d %d %d %d\n", *pa, *(pa + 1), *(pa + 2), *(pa + 3));
+	printf("%d %d %d\n", pa, &a, &a[0]);
+
+
+	int data = 100;
+	char ch = 'A';
+	int* ptrint = &data;
+	char* ptrchar = &ch;
+	printf("간접 참조 출력 : %d %c\n", *ptrint, *ptrchar);
+
+	*ptrint = 200;
+	*ptrchar = 'B';
+	printf("직접 참조출력 : %d %c\n", data, ch);
+	printf("간접 참조 출력 : %d %c\n", *ptrint, *ptrchar);
+
+	return 0;
+}
