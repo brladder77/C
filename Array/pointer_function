@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+void fun1(int *a, int *b) {
+	*a = *a + 3;
+	*b = *b - 3;
+}
+
+int main() {
+	int x, y;
+	puts("여기는 main() 함수 입니다.");
+	scanf_s("%d%d",&x,&y);
+	printf("함수를 호출하기 전 x,y 값 => %d, %d\n", x, y);
+	fun1(&x, &y);
+	printf("함수를 호출한 후 x,y 값 => %d, %d \n", x, y);
+  
+  return 0;
+}
