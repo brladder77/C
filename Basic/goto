@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+
+	int N;
+  
+	puts("값을 입력하세요");
+	scanf_s("%d", &N);
+  
+	while (N == 0 || N < 0) {
+  
+		puts("값을 입력하세요");
+		scanf_s("%d", &N);
+    
+		if (N != 0 && N > 0) {
+			printf("%d\n", 2 * N);
+			goto LABEL;
+		}
+	}
+LABEL: puts("The End");
+
+return 0;
+}
