@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int x = 15;
+float table[10];
+char str[] ="hi";
+
+void a() {
+
+	int x = 10;
+	extern float table[];
+	extern char str[];
+  
+	puts("in a() : ");
+	printf( "	지역변수 x는 : % d\n", x);
+  
+	table[3] = 10.12;
+	str[1] ='e';
+  
+}
+
+void b() {
+
+	puts("in b() : ");
+  
+	printf("	전역변수 x는 : % d\n", x);
+	printf("	전역배열 table[3]는 % .2f\n", table[3]);
+	printf("	전역문자열은 : % s\n", str);
+}
+
+int main() {
+
+	puts("in main : ");
+	printf(" 	전역변수 x는 : % d\n", x);
+	printf("	전역배열 table[3]는 % 6.2f\n", table[3]);
+	printf("	전역문자열은 : % s\n", str);
+  
+	a();	b();
+  
+  return 0;
+}
