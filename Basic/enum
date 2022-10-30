@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+
+	enum DEF_num {HANA, DUL, SET, NET};
+	enum DEF_num one;
+	enum DEF_num two;
+	one = HANA;
+	two = DUL;
+
+	printf("%d\n", one);
+	printf("%d\n", two);
+	printf("%d\n", HANA + DUL + SET + NET);
+
+	getchar();
+	int three;
+	three = SET;
+	printf("%d\n", three);
+	getchar();
+
+	return 0;
+}
