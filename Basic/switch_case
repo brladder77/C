@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main() {
+
+	puts("글자 하나를 입력하시오");
+	char a;
+	scanf_s("%c", &a);
+  
+	if (a == 'W' || a == 'w')
+		puts("West");
+	else if (a == 'E' || a == 'e')
+		puts("East");
+	else if (a == 'S' || a == 's')
+		puts("South");
+	else if (a == 'N' || a == 'n')
+		puts("North");
+	else
+		puts("error");
+
+
+	char b;
+	puts("글자 하나를 더 입력하시오");
+	scanf_s("%c", &b);
+  
+	switch (b) {
+	case 'W':
+	case 'w':
+		puts("West"); break;
+	case 'N':
+	case 'n':
+		puts("North"); break;
+	case 'S':
+	case 's':
+		puts("South"); break;
+	case 'E':
+	case 'e':
+		puts("East"); break;
+	}
+  
+  return 0;
+}
