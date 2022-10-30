@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main()
+{
+	int x = 10, y = 30;
+  
+	printf("%d %d\n", x++, --x + y--);
+	//printf함수는 뒤에서부터 수식을 수행, 즉 --부터 시행
+	x %= y = (y = 4) % (x = 3);
+	printf("%d %d\n", x, y);
+  
+  return 0;
+}
