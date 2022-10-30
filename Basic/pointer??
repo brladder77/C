@@ -1,0 +1,14 @@
+#include <stdio.h>
+#define num 1
+
+void main() {
+	char *res;
+
+#if(num!=1)
+	res = "not so good";
+#else
+	res = "excellent";
+#endif
+
+	printf("%s", res);
+} 
