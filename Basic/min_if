@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main() {
+
+	int num1, num2, num3, min;
+	min = 999;
+	scanf_s("%d%d%d", &num1, &num2, &num3);
+  
+	if (min > num1)
+		min = num1;
+	if (min > num2)
+		min = num2;
+	if (min > num3)
+		min = num3;
+	printf("최소값은 %d 입니다.\n", min);
+  
+  return 0;
+}
