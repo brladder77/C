@@ -15,3 +15,27 @@ int main() {
   
   return 0;
 }
+
+/*
+#include <stdio.h>
+
+void fun1(int a, int b) {
+	a = a + 3;
+	b = b - 3;
+}
+
+int main() {
+	int x, y;
+	puts("여기는 main() 함수 입니다.");
+	scanf_s("%d%d", &x, &y);
+	printf("함수를 호출하기 전 x,y 값 => %d, %d\n", x, y);
+	fun1(x, y);
+	printf("함수를 호출한 후 x,y 값 => %d, %d \n", x, y);
+	
+	return 0;
+}
+*/
+
+// 두 함수를 비교해보면 call by value를 이용했을 때는 바뀐 값을 함수 밖으로 가져올 수 없다
+// call by reference는 함수 밖에서 가져오고 내보내는게 자유로움
+//a,b에 x,y의 값이 아닌 주소를 넣은 것.
