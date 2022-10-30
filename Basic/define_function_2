@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+#define alpha(x) ('a'<=(x)&&'z'>=(x)?puts("소문자"):puts("대문자"))
+
+int main() {
+
+	char c;
+	printf("문자 하나를 입력하시오 : ");
+	scanf_s("%c", &c);
+  
+	alpha(c);
+  
+  return 0;
+}
