@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main() {
+
+	char ch_1;
+  
+	for (ch_1 = getchar(); ch_1 != 'Q'; ch_1 = getchar())
+		putchar(ch_1);
+	printf("\n실행이 끝났습니다.");
+	
+  return 0;
+}
