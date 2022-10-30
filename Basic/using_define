@@ -1,0 +1,27 @@
+#include <stdio.h>
+#define e puts("동")
+#define w puts("서")
+#define s puts("남")
+#define n puts("북")
+
+int main() {
+
+	int x;
+	printf("숫자 하나를 입력하시오 : ");
+	scanf_s("%d", &x);
+  
+	switch (x) {
+	case 1:
+		e; break;
+	case 2:
+		w; break;
+	case 3:
+		s; break;
+	case 4:
+		n; break;
+	default :
+		puts("다시 입력하세요.");
+	}
+  
+  return 0;
+}
