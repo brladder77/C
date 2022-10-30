@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+void static_local();
+
+int main() {
+
+	int cnt;
+	puts("정적 지역 변수 s_var");
+  
+	for (cnt = 0; cnt < 3; cnt++) {
+		printf("=> 회전 %d\n", cnt + 1);
+		static_local();
+	}
+  
+  return 0;
+}
+
+void static_local() {
+
+	int l_var = 1;
+	static int s_var = 1;
+  
+	printf("지역변수 (l_var) : %d\n", l_var++);
+	printf("정적 지역 변수 (s_var) : %d\n", s_var++);
+}
