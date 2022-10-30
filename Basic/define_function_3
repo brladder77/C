@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+#define alpha(x) ((x)<='z'&&(x)>='a'?x-32:x+32)
+
+int main() {
+
+	char c;
+	printf("문자 하나를 입력하시오 : ");
+	scanf_s("%c", &c);
+  
+	printf("%c", alpha(c));
+  
+  return 0;
+}
